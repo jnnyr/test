@@ -11,5 +11,5 @@ jobs:
       - name: get-version
         id: get_version
         run: |
-          GOVER="$(curl -sLf 'https://golang.org/VERSION?m=text' | grep -o "go")"
+          GOVER="$(curl -sLf 'https://golang.org/VERSION?m=text' | grep -o "^go")"
           echo "GO_VERSION=${GOVER#go}"
