@@ -1,0 +1,15 @@
+on:
+  schedule:
+    - cron:  '0 14 * * *'
+  workflow_dispatch:
+
+name: gover
+jobs:
+  gover:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: get-version
+        id: get_version
+        run: |
+          GOVER="$(curl -sLf 'https://golang.org/VERSION?m=text' | grep -o "go")"
+          echo "GO_VERSION=${GOVER#go}"
